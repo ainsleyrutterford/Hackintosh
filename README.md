@@ -20,6 +20,8 @@ To get WiFi working again, installed `bcmwl-kernel-source` from `groovy` repos b
 sudo dpkg -i bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu7_amd64.deb
 ```
 
+Once this was installed, WiFi and bluetooth worked perfectly again.
+
 ## macOS Catalina
 
 ## macOS Big Sur
