@@ -24,4 +24,17 @@ Once this was installed, WiFi and bluetooth worked perfectly again.
 
 ## macOS Catalina
 
+### Creating the installation USB
+
+- Downloaded the Install macOS Catalina application via [this link](https://go.redirectingat.com/?id=803X112722&xcust=41-3629363-11-0000000&sref=https%3A%2F%2Fwww.macworld.co.uk%2Fhow-to%2Fdownload-old-os-x-3629363%2F&xs=1&url=https%3A%2F%2Fapps.apple.com%2Fsg%2Fapp%2Fmacos-catalina%2Fid1466841314%3Fmt%3D12) (open it in Safari on a Mac).
+- Formatted the installation USB to Mac OS Extended (Journaled) using a GUID Partition Scheme.
+- Finally used `sudo /Applications/Install\ macOS\ Catalina.app/Contents/Resources/createinstallmedia --volume /Volumes/MyVolume` to create the installer.
+
+### Creating an EFI folder
+
+- Downloaded a premade EFI folder from [Chris Schmock's repo](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3).
+- Renamed the `config_iMac20,2_iGPU_computing_only.plist` to `config.plist`.
+- Followed [this guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial) to generate new `MLB`, `SystemSerialNumber`, and `SystemUUID` serial numbers.
+- Pasted the serials into the relevant fields in `Root > PlatformInfo > Generic` in the `config.plist`.
+
 ## macOS Big Sur
