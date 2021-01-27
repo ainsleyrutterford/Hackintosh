@@ -36,6 +36,6 @@ Once this was installed, WiFi and bluetooth worked perfectly again.
 - Downloaded a premade EFI folder from [Chris Schmock's repo](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) and copied it to the EFI partition.
 - Renamed `config_iMac20,2_iGPU_computing_only.plist` to `config.plist` (inside `EFI/OC`).
 - Followed [this guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial) to generate new `MLB`, `SystemSerialNumber`, and `SystemUUID` serial numbers. I used [GenSMBOIS](https://github.com/corpnewt/GenSMBIOS) and used a serial that wasn't "valid", since the guide (and every answer I found online) said that this normally works.
-- Pasted the serials into the relevant fields in `Root > PlatformInfo > Generic` in `config.plist`.
+- Used [PlistEdit Pro](https://www.fatcatsoftware.com/plisteditpro/) to paste the serials into the relevant fields in `Root > PlatformInfo > Generic` in `config.plist`.
 
 ## macOS Big Sur
