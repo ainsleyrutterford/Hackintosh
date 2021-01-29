@@ -26,7 +26,7 @@ Once this was installed, WiFi and bluetooth worked perfectly again.
 
 ## Installing macOS Catalina
 
-Ended up doing this on Ubuntu 20.04.1 instead of on my MacBook Pro. Followed the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/) and used this [YouTube video](https://www.youtube.com/watch?v=eUnVzJsINCI) for an idea of what to do aswell.
+Ended up doing most of this process on Ubuntu 20.04.1 instead of on my MacBook Pro. Followed the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/) and used this [YouTube video](https://www.youtube.com/watch?v=eUnVzJsINCI) for an idea of what to do aswell.
 
 <!-- THIS WAS ALL FOLLOWING THE SHMOCK GUIDE AND I REDID IT ALL ON LINUX INSTEAD OF MAC:
 
@@ -78,6 +78,10 @@ Followed [Chris Schmock's settings](https://github.com/SchmockLord/Hackintosh-In
 - **USB Ports:** although the four I was using all worked perfectly 95% of the time, the keyboard did stop working at one point and only continued to work after changing USB port, so I decided to ... USB TABLE?
 
 ### Fixing Ethernet
+
+Followed the advice outlined [here](https://www.reddit.com/r/hackintosh/comments/i3pega/z490_itx_guide/) (which was then referenced [here](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3/issues/25) and [here](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3/issues/4)):
+
+> Navigate to System Preferences > Network. Select Ethernet, click Advanced, click Hardware, and Select Configure : Manually with Speed : 1000baseT
 
 ### USB Ports
 
