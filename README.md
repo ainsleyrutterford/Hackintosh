@@ -1,14 +1,16 @@
 # Hackintosh installation
 
-Installation processes for Windows, Linux, and Mac OS
+Notes about the installation processes for Windows, Linux, and macOS on my new build.
 
-## Windows 10
+## Hardware
+
+## Installing Windows 10
 
 Created installation USB using [this tool](https://www.microsoft.com/en-gb/software-download/windows10ISO) and installed with only one drive installed.
 
 All but WiFi and bluetooth worked out of the box. Had to install [this driver](http://en.fenvi.com/en/download_zx.php) (suggested in [this thread](https://www.tonymacx86.com/threads/a-perfect-and-simple-solution-bcm94331-94360-drivers-for-windows-10-8-7.302090/)) for WiFi and Bluetooth to work.
 
-## Ubuntu 20.04.1 LTS
+## Installing Ubuntu 20.04.1 LTS
 
 Created installation USB by following [this guide](https://ubuntu.com/tutorials/create-a-usb-stick-on-windows#1-overview) which uses [Rufus](https://rufus.ie/). Unplugged Windows drive and plugged in Linux drive and installed as usual.
 
@@ -22,7 +24,11 @@ sudo dpkg -i bcmwl-kernel-source_6.30.223.271+bdcom-0ubuntu7_amd64.deb
 
 Once this was installed, WiFi and bluetooth worked perfectly again.
 
-## macOS Catalina
+## Installing macOS Catalina
+
+Ended up doing this on Ubuntu 20.04.1 instead of on my MacBook Pro. Followed the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/) and used this [YouTube video](https://www.youtube.com/watch?v=eUnVzJsINCI) for an idea of what to do aswell.
+
+<!-- THIS WAS ALL FOLLOWING THE SHMOCK GUIDE AND I REDID IT ALL ON LINUX INSTEAD OF MAC:
 
 ### Creating the installation USB
 
@@ -36,6 +42,49 @@ Once this was installed, WiFi and bluetooth worked perfectly again.
 - Downloaded a premade EFI folder from [Chris Schmock's repo](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) and copied it to the EFI partition.
 - Renamed `config_iMac20,2_iGPU_computing_only.plist` to `config.plist` (inside `EFI/OC`).
 - Followed [this guide](https://dortania.github.io/OpenCore-Post-Install/universal/iservices.html#generate-a-new-serial) to generate new `MLB`, `SystemSerialNumber`, and `SystemUUID` serial numbers. I used [GenSMBOIS](https://github.com/corpnewt/GenSMBIOS) and used a serial that wasn't "valid", since the guide (and every answer I found online) said that this normally works.
-- Used [PlistEdit Pro](https://www.fatcatsoftware.com/plisteditpro/) to paste the serials into the relevant fields in `Root > PlatformInfo > Generic` in `config.plist`.
+- Used [PlistEdit Pro](https://www.fatcatsoftware.com/plisteditpro/) to paste the serials into the relevant fields in `Root > PlatformInfo > Generic` in `config.plist`. -->
 
-## macOS Big Sur
+### Creating the installation USB
+
+- Followed the Dortania guide and used [macrecovery.py](https://github.com/acidanthera/OpenCorePkg/releases) to chose Catelina 10.15.7.
+- The firmware drivers and kexts I chose are available in the [EFI](EFI) directory.
+- I think I used a prebuilt SSDT-AWAC but created the rest myself using [SSDTTime](https://github.com/corpnewt/SSDTTime).
+- Followed the [Comet Lake Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#starting-point) to edit the `config.plist`. Used [ProperTree](https://github.com/corpnewt/ProperTree) to edit the plist and [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to generate the SMBIOS data.
+    - When trying to generate serials for `iMac20,1` (since the Comet Lake guide recommended it for i7-10700K and lower), I found that the `macserial` binary included in GenSMBIOS would not work. To fix this I compiled a new `macserial` binary using the source files found in the [0.6.5 release of OpenCore](https://github.com/acidanthera/OpenCorePkg/releases) with `gcc -std=c99 macserial.c macserial.h -o macserial` and placed this new binary in the `Scripts` directory of GenSMBIOS.
+- Used the [sanity checker](https://opencore.slowgeek.com/) and ended up changing a couple values but nothing major.
+
+### BIOS Settings
+
+Followed [Chris Schmock's settings](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) almost exactly.
+
+### Installation
+
+- Unplugged the Linux and Windows drives.
+- Booted into the USB, chose `OPENCORE (external)` and formatted the drive to APFS with a GUID partition scheme.
+- Installed Catalina. When the computer restarted, I think the `EFI` directory had been deleted from the USB? I dragged it back over from Linux, booted back in and the installation continued.
+
+### What worked straight away
+
+- **Audio:** the 3.5 mm rear jack and the USB Razer Blackshark V2 Pro both work perfectly.
+- **WiFi**
+- **Bluetooth**
+- **AirDrop**
+- **iMessage**
+- **Sleep/wake:** seems to wake with one tap of space bar and one or two clicks? Also seems to stay asleep? Will do some more testing.
+
+### What didn't work
+
+- **Ethernet:** chip showed up in system report but wasn't working.
+- **USB Ports:** although the four I was using all worked perfectly 95% of the time, the keyboard did stop working at one point and only continued to work after changing USB port, so I decided to ... USB TABLE?
+
+### Fixing Ethernet
+
+### USB Ports
+
+### Booting without a USB
+
+### Triple Boot
+
+### OpenCanopy
+
+## Updating to macOS Big Sur
