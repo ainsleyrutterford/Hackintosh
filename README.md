@@ -84,14 +84,14 @@ Followed the advice outlined [here](https://www.reddit.com/r/hackintosh/comments
 
 > Navigate to System Preferences > Network. Select Ethernet, click Advanced, click Hardware, and Select Configure : Manually with Speed : 1000baseT
 
-### USB Ports
-
 ### Booting without a USB
 
-### Triple Boot
+### USB Ports
 
 ### Making the boot less verbose
 
-### OpenCanopy
-
 ## Updating to macOS Big Sur
+
+## Triple Boot
+
+### OpenCanopy
