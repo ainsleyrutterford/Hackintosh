@@ -55,7 +55,7 @@ Ended up doing this on Ubuntu 20.04.1 instead of on my MacBook Pro. Followed the
 
 ### BIOS Settings
 
-Followed [Chris Schmock's settings](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) almost exactly.
+Followed [Chris Schmock's settings](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) almost exactly. I ended up updating my BIOS to [1.50](https://www.asrock.com/mb/Intel/Z490%20Phantom%20Gaming-ITXTB3/index.asp#BIOS) using the Windows easy installation process, as I was having troubles with booting into the USB (but it turned out I had put the `EFI` directory in the wrong place, so the update was unnecesasry).
 
 ### Installation
 
