@@ -86,12 +86,24 @@ Followed the advice outlined [here](https://www.reddit.com/r/hackintosh/comments
 
 ### Booting without a USB
 
+Followed Dortania guide.
+
 ### USB Ports
+
+Followed Dortania guide.
 
 ### Making the boot less verbose
 
+Followed Dortania guide and Papadiche's guide.
+
 ## Updating to macOS Big Sur
+
+Updated as usual? Looked at these discussions...
 
 ## Triple Boot
 
+Followed this guide.
+
 ### OpenCanopy
+
+Followed Dortania guide and this guide.
