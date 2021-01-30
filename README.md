@@ -4,6 +4,39 @@ Notes about the installation processes for Windows, Linux, and macOS on my new b
 
 ## Hardware
 
+- Case: NCASE M1 V5.0
+- CPU: Intel i7 10700K
+- GPU: Sapphire Radeon RX 5700 XT Pulse 
+- Memory: Corsair Vengeance LPX DDR4 3000MHz 32GB
+- Motherboard: ASRock Z490 Phantom Gaming-ITX/TB3
+    - Audio card: Realtek ALC1220-VB
+    - WiFi/Bluetooth card: Broadcom BCM94360NG
+    - Ethernet card: Realtek RTL8125B-CG
+- Storage:
+    - WD BLACK SN750 NVMe 1TB — macOS Big Sur
+    - WD BLACK SN750 NVMe 1TB (with heatsink) — Windows 10
+    - Kingston 500GB SSD — Ubuntu 20.0.4 LTS
+    - Kingston 2TB SSD — Shared internal storage
+- Power Supply: Corsair SF600
+
+## What works
+
+- **Audio**
+- **Ethernet**
+- **WiFi**
+- **Bluetooth**
+- **AirDrop**
+- **iMessage**
+- **iCloud**
+- **Find My**
+- **Sleep/wake**
+- **Shutdown**
+- **Restart**
+
+## What doesn't work
+
+- Nothing that I am aware of
+
 ## Installing Windows 10
 
 Created installation USB using [this tool](https://www.microsoft.com/en-gb/software-download/windows10ISO) and installed with only one drive installed.
@@ -66,19 +99,11 @@ Followed [Chris Schmock's settings](https://github.com/SchmockLord/Hackintosh-In
 
 ### What worked straight away
 
-- **Audio:** the 3.5 mm rear jack and the USB Razer Blackshark V2 Pro both work perfectly.
-- **WiFi**
-- **Bluetooth**
-- **AirDrop**
-- **iMessage**
-- **Sleep/wake:** seems to wake with one tap of space bar and one or two clicks. For good measure, disabled "wake for network access" and "power nap" in System Preferences > Energy Saver, and disabled "allow bluetooth devices to wake this computer" in System Preferences > Bluetooth > Advanced.
-- **Shutdown**
-- **Restart**
+**Audio** *(the 3.5 mm rear jack and the USB Razer Blackshark V2 Pro both work perfectly)*, **WiFi**, **Bluetooth**, **AirDrop**, **iMessage**, **Sleep/wake** *(seems to wake with one tap of space bar and one or two clicks. For good measure, disabled "wake for network access" and "power nap" in System Preferences > Energy Saver, and disabled "allow bluetooth devices to wake this computer" in System Preferences > Bluetooth > Advanced)*, **Shutdown**, **Restart**.
 
 ### What didn't work
 
-- **Ethernet:** chip showed up in system report but wasn't working (FIXED).
-- **USB Ports:** although the four I was using all worked perfectly 95% of the time, the keyboard did stop working at one point and only continued to work after changing USB port, so I decided to ... USB TABLE?
+**Ethernet** *chip showed up in system report but wasn't working (fixed later on)*.
 
 ### Fixing Ethernet
 
@@ -126,27 +151,28 @@ Simply followed the [Dortania guide](https://dortania.github.io/OpenCore-Post-In
     - Booted back into the `Hackintosh` drive to continue with the update.
 - Updated as usual via System Preferences and all went smoothly.
 
-## Triple Boot
+## Adding Ubuntu boot option to OpenCore
 
-Logged into Ubuntu and used the disks settings application to rename the `EFI` partition. This changed it from `NO NAME` to `UBUNTU` in the OpenCore boot menu.
+The Windows boot option was automatically available and worked perfectly. Ubuntu seemed available too but was called `NO NAME` and I could not boot to it. I logged into Ubuntu and used the disks settings application to rename the `EFI` partition. This changed it from `NO NAME` to `UBUNTU` in the OpenCore boot menu. However, I still could not get this `UBUNTU` option to work like the `Windows` one was by default. So I followed [this guide](https://medium.com/macoclock/guide-multiboot-dualboot-opencore-with-windows-macos-linux-kextcache-131e96784c3f) and (looked at [this guide](https://github.com/sarkrui/Hackintosh-Z390-Aorus-Pro-9700K-RX580/wiki/How-to-add-a-boot-entry-in-OpenCore) too).
 
-Followed [this guide](https://medium.com/macoclock/guide-multiboot-dualboot-opencore-with-windows-macos-linux-kextcache-131e96784c3f) and (looked at [this guide](https://github.com/sarkrui/Hackintosh-Z390-Aorus-Pro-9700K-RX580/wiki/How-to-add-a-boot-entry-in-OpenCore) too).
-
+- Booted into `OpenShell.efi` and noting down all of the partitions that corresponded to the each operating system.
 - Couldn't mount Linux EFI using [MountEFI](https://github.com/corpnewt/MountEFI) so ended up using `distutil` as recommended [here](https://www.insanelymac.com/forum/topic/344324-opencore-last-step-problem-please-help/):
     - Used `distutil list` to list all connected disks.
     - Linux was `disk2` and the `EFI` was partition `1` so I used `sudo distutil mount disk2s1`.
     - You can later unmount with `sudo distutil unmount disk2s1`.
+- Ended up with these values:
 
 ```
 FS0: Linux
 PciRoot(0x0)/Pci(0x17,0x0)/Sata(0x0,0xFFFF,0x0)/HD(1,GPT,A1A31A26-6614-44CD-9E03-A145082203FD,0x800,0x100000)/\EFI\ubuntu\grubx64.efi
 
-FS1: Mac
-
 FS8: Windows
 PciRoot(0x0)/Pci(0x1D,0x0)/Pci(0x0,0x0)/NVMe(0x1,B0-29-A6-44-8B-44-1B-00)/\EFI\Microsoft\Boot\bootmgfw.efi
 ```
+- Mounted the Hackintosh `EFI` again and edited the `config.plist`:
+    - Added a new entries in `MISC > Entries` with the correct `Path` and `Name` and setting `Enabled` to `True` (one entry for Linux, one entry for Windows).
+    - For some reason, the `Windows` entry did not work in the OpenCore menu (it appeared but would not boot, although the original `Windows` was still present and did boot). The new `Linux` entry boots perfectly (but the old `UBUNTU` still doesn't work).
 
 ### OpenCanopy
 
-Followed Dortania guide and this guide.
+Followed the [Dortania OpenCanopy guide](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html#setting-up-opencore-s-gui) and set `MISC > Boot > PickerVariant` to `Default`.
