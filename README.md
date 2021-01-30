@@ -15,7 +15,7 @@ Notes about the installation processes for Windows, Linux, and macOS on my new b
 - Storage:
     - WD BLACK SN750 NVMe 1TB — macOS Big Sur
     - WD BLACK SN750 NVMe 1TB (with heatsink) — Windows 10
-    - Kingston 500GB SSD — Ubuntu 20.0.4 LTS
+    - Kingston 500GB SSD — Ubuntu 20.04.1 LTS
     - Kingston 2TB SSD — Shared internal storage
 - Power Supply: Corsair SF600
 
@@ -103,7 +103,7 @@ Followed [Chris Schmock's settings](https://github.com/SchmockLord/Hackintosh-In
 
 ### What didn't work
 
-**Ethernet** *chip showed up in system report but wasn't working (fixed later on)*.
+**Ethernet** *(chip showed up in system report but wasn't working, fixed this later on)*.
 
 ### Fixing Ethernet
 
@@ -153,7 +153,7 @@ Simply followed the [Dortania guide](https://dortania.github.io/OpenCore-Post-In
 
 ## Adding Ubuntu boot option to OpenCore
 
-The Windows boot option was automatically available and worked perfectly. Ubuntu seemed available too but was called `NO NAME` and I could not boot to it. I logged into Ubuntu and used the disks settings application to rename the `EFI` partition. This changed it from `NO NAME` to `UBUNTU` in the OpenCore boot menu. However, I still could not get this `UBUNTU` option to work like the `Windows` one was by default. So I followed [this guide](https://medium.com/macoclock/guide-multiboot-dualboot-opencore-with-windows-macos-linux-kextcache-131e96784c3f) and (looked at [this guide](https://github.com/sarkrui/Hackintosh-Z390-Aorus-Pro-9700K-RX580/wiki/How-to-add-a-boot-entry-in-OpenCore) too).
+The Windows boot option was automatically available and worked perfectly. Ubuntu seemed to be available too but was called `NO NAME` and I could not boot into it. I logged into Ubuntu and used the disks settings application to rename the `EFI` partition. This changed it from `NO NAME` to `UBUNTU` in the OpenCore boot menu. However, I still could not get this `UBUNTU` option to work like the `Windows` one was by default. So I followed [this guide](https://medium.com/macoclock/guide-multiboot-dualboot-opencore-with-windows-macos-linux-kextcache-131e96784c3f) and (looked at [this guide](https://github.com/sarkrui/Hackintosh-Z390-Aorus-Pro-9700K-RX580/wiki/How-to-add-a-boot-entry-in-OpenCore) too).
 
 - Booted into `OpenShell.efi` and noting down all of the partitions that corresponded to the each operating system.
 - Couldn't mount Linux EFI using [MountEFI](https://github.com/corpnewt/MountEFI) so ended up using `distutil` as recommended [here](https://www.insanelymac.com/forum/topic/344324-opencore-last-step-problem-please-help/):
