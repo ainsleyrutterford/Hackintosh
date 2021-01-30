@@ -1,3 +1,5 @@
+<img src="https://github.com/ainsleyrutterford/Hackintosh/raw/master/docs/neofetch.png">
+
 # Hackintosh installation
 
 Notes about the installation processes for Windows, Linux, and macOS on my new build.
