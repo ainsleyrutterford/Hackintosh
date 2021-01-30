@@ -28,7 +28,7 @@ Once this was installed, WiFi and bluetooth worked perfectly again.
 
 Ended up doing most of this process on Ubuntu 20.04.1 instead of on my MacBook Pro. Followed the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/) and used this [YouTube video](https://www.youtube.com/watch?v=eUnVzJsINCI) for an idea of what to do aswell.
 
-<!-- THIS WAS ALL FOLLOWING THE SHMOCK GUIDE AND I REDID IT ALL ON LINUX INSTEAD OF MAC:
+<!-- THIS WAS ALL FOLLOWING THE SCHMOCK GUIDE AND I REDID IT ALL ON LINUX INSTEAD OF MAC:
 
 ### Creating the installation USB
 
@@ -72,10 +72,12 @@ Followed [Chris Schmock's settings](https://github.com/SchmockLord/Hackintosh-In
 - **AirDrop**
 - **iMessage**
 - **Sleep/wake:** seems to wake with one tap of space bar and one or two clicks. For good measure, disabled "wake for network access" and "power nap" in System Preferences > Energy Saver, and disabled "allow bluetooth devices to wake this computer" in System Preferences > Bluetooth > Advanced.
+- **Shutdown**
+- **Restart**
 
 ### What didn't work
 
-- **Ethernet:** chip showed up in system report but wasn't working.
+- **Ethernet:** chip showed up in system report but wasn't working (FIXED).
 - **USB Ports:** although the four I was using all worked perfectly 95% of the time, the keyboard did stop working at one point and only continued to work after changing USB port, so I decided to ... USB TABLE?
 
 ### Fixing Ethernet
@@ -86,15 +88,23 @@ Followed the advice outlined [here](https://www.reddit.com/r/hackintosh/comments
 
 ### Booting without a USB
 
-Followed Dortania guide.
+Simply followed the [Dortania guide](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) again.
 
 ### USB Ports
 
-Followed Dortania guide.
+- Mounted the `EFI` partition using [MountEFI](https://github.com/corpnewt/MountEFI).
+- Removed `USBInjectAll.kext`.
+- Removed `SSDT-EC-USBX-DESKTOP.aml` and added [Schmock's](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) `SSDT-EC-USBX.aml`.
+- (This isn't to do with USB, but added [Schmock's](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) `SSDT-SBUS-MCHC.aml` as [Papadiche](https://docs.google.com/document/d/1XeUu0YcV2JjsxzpEYQL7mAyqkdN7Q0TTLC6gSsfxzC4/edit) had it too.)
+- Added [Papadiche's](https://docs.google.com/document/d/1XeUu0YcV2JjsxzpEYQL7mAyqkdN7Q0TTLC6gSsfxzC4/edit) `USBMap.kext`.
+- Added `USBWakeFixup.kext`.
+- Opened `config.plist` in [ProperTree](https://github.com/corpnewt/ProperTree), and clicked `File > OC snapshot` to inject the kexts.
+- Rebooted, and ...
 
 ### Making the boot less verbose
 
 Followed Dortania guide and Papadiche's guide.
+- Mounted the `EFI` partition using [MountEFI](https://github.com/corpnewt/MountEFI).
 
 ## Updating to macOS Big Sur
 
