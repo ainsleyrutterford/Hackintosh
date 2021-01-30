@@ -1,4 +1,4 @@
-<img src="https://github.com/ainsleyrutterford/Hackintosh/raw/master/docs/neofetch.png">
+<img src="docs/neofetch.png">
 
 # Hackintosh installation
 
