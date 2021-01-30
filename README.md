@@ -99,12 +99,16 @@ Simply followed the [Dortania guide](https://dortania.github.io/OpenCore-Post-In
 - Added [Papadiche's](https://docs.google.com/document/d/1XeUu0YcV2JjsxzpEYQL7mAyqkdN7Q0TTLC6gSsfxzC4/edit) `USBMap.kext`.
 - Added `USBWakeFixup.kext`.
 - Opened `config.plist` in [ProperTree](https://github.com/corpnewt/ProperTree), and clicked `File > OC snapshot` to inject the kexts.
-- Rebooted, and ...
+- Also changed `Kernel > Quirks > XhciPortLimit` to `False` in the `config.plist`.
+- Rebooted.
 
 ### Making the boot less verbose
 
-Followed Dortania guide and Papadiche's guide.
 - Mounted the `EFI` partition using [MountEFI](https://github.com/corpnewt/MountEFI).
+- Opened `config.plist` in [ProperTree](https://github.com/corpnewt/ProperTree) and:
+    - Changed `Misc > Debug > AppleDebug` to `False`.
+    - Removed `-v` from `boot-args` in `NVRAM > Add > 7C436110-AB2A-4BBB-A880-FE41995C9F82`.
+- Rebooted.
 
 ## Updating to macOS Big Sur
 
