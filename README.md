@@ -119,7 +119,12 @@ Simply followed the [Dortania guide](https://dortania.github.io/OpenCore-Post-In
 
 ## Updating to macOS Big Sur
 
-Updated as usual? Looked at these discussions...
+- Backed up the `Hackintosh` drive using [Carbon Copy Cloner]().
+    - Mounted the `EFI` partitions of `Hackintosh` and the back up drive using [MountEFI](https://github.com/corpnewt/MountEFI).
+    - Copied the `EFI` folder from `Hackintosh` over to the back up drive.
+    - Booted into the back up drive to check if it was functional.
+    - Booted back into the `Hackintosh` drive to continue with the update.
+- Updated as usual by...
 
 ## Triple Boot
 
