@@ -124,11 +124,28 @@ Simply followed the [Dortania guide](https://dortania.github.io/OpenCore-Post-In
     - Copied the `EFI` folder from `Hackintosh` over to the back up drive.
     - Booted into the back up drive to check if it was functional.
     - Booted back into the `Hackintosh` drive to continue with the update.
-- Updated as usual by...
+- Updated as usual via System Preferences and all went smoothly.
 
 ## Triple Boot
 
-Followed this guide.
+Logged into Ubuntu and used the disks settings application to rename the `EFI` partition. This changed it from `NO NAME` to `UBUNTU` in the OpenCore boot menu.
+
+Followed [this guide](https://medium.com/macoclock/guide-multiboot-dualboot-opencore-with-windows-macos-linux-kextcache-131e96784c3f) and (looked at [this guide](https://github.com/sarkrui/Hackintosh-Z390-Aorus-Pro-9700K-RX580/wiki/How-to-add-a-boot-entry-in-OpenCore) too).
+
+- Couldn't mount Linux EFI using [MountEFI](https://github.com/corpnewt/MountEFI) so ended up using `distutil` as recommended [here](https://www.insanelymac.com/forum/topic/344324-opencore-last-step-problem-please-help/):
+    - Used `distutil list` to list all connected disks.
+    - Linux was `disk2` and the `EFI` was partition `1` so I used `sudo distutil mount disk2s1`.
+    - You can later unmount with `sudo distutil unmount disk2s1`.
+
+```
+FS0: Linux
+PciRoot(0x0)/Pci(0x17,0x0)/Sata(0x0,0xFFFF,0x0)/HD(1,GPT,A1A31A26-6614-44CD-9E03-A145082203FD,0x800,0x100000)/\EFI\ubuntu\grubx64.efi
+
+FS1: Mac
+
+FS8: Windows
+PciRoot(0x0)/Pci(0x1D,0x0)/Pci(0x0,0x0)/NVMe(0x1,B0-29-A6-44-8B-44-1B-00)/\EFI\Microsoft\Boot\bootmgfw.efi
+```
 
 ### OpenCanopy
 
