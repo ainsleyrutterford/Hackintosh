@@ -1,4 +1,6 @@
-<img src="docs/neofetch.png">
+<p align="center">
+<img src="docs/neofetch.png" height=280>
+</p>
 
 # Hackintosh installation
 
