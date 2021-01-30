@@ -110,6 +110,13 @@ Simply followed the [Dortania guide](https://dortania.github.io/OpenCore-Post-In
     - Removed `-v` from `boot-args` in `NVRAM > Add > 7C436110-AB2A-4BBB-A880-FE41995C9F82`.
 - Rebooted.
 
+### Using Bootstrap
+
+- Opened `config.plist` in [ProperTree](https://github.com/corpnewt/ProperTree) and:
+    - Changed `Misc > Security > BootProtect` to `Bootstrap`.
+    - Was told to change `UEFI > Quirks > RequestBootVarRouting` to `True` but it already was.
+- Rebooted.
+
 ## Updating to macOS Big Sur
 
 Updated as usual? Looked at these discussions...
