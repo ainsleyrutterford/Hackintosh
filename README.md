@@ -1,5 +1,5 @@
 <p align="center">
-<img src="docs/about.png" height=310>
+<img src="docs/about.png" height=360>
 </p>
 
 # Hackintosh installation
