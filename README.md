@@ -2,7 +2,7 @@
 <img src="docs/about.png" height=380>
 </p>
 
-# Hackintosh installation
+# Hackintosh
 
 Notes about the installation processes for Windows, Linux, and macOS on my new build. Some benchmark scores are available [here](docs/benchmarks.md).
 
