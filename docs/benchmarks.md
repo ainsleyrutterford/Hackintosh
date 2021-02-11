@@ -2,13 +2,12 @@
 
 ## SSDs
 
-Benchmarked using [Black Magic Disk Speed Test](https://apps.apple.com/gb/app/blackmagic-disk-speed-test/id425264550?mt=12) on macOS and Windows, and [not sure yet](a) on Ubuntu.
+Benchmarked using [Black Magic Disk Speed Test](https://apps.apple.com/gb/app/blackmagic-disk-speed-test/id425264550?mt=12) on macOS and Windows.
 
 | Drive | Write (MB/s) | Read (MB/s) |
 | --- | --- | --- |
 | 2TB Kingston SSD (from macOS) | 465 | 527 |
 | 2TB Kingston SSD (from Windows) | 477| 527 |
-| 500GB Kingston SSD (Ubuntu) |    |    |
 | 1TB WD BLACK (macOS) | 2848 | 2922 |
 | 1TB WD BLACK with heatsink (Windows) | 2799 | 2908 |
 
