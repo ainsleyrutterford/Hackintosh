@@ -99,7 +99,7 @@ Followed [Chris Schmock's settings](https://github.com/SchmockLord/Hackintosh-In
 
 - Unplugged the Linux and Windows drives.
 - Booted into the USB, chose `OPENCORE (external)` and formatted the drive to APFS with a GUID partition scheme.
-- Installed Catalina. When the computer restarted, I think the `EFI` directory had been deleted from the USB? I dragged it back over from Linux, booted back in and the installation continued.
+- Installed Catalina. ~~When the computer restarted, I think the `EFI` directory had been deleted from the USB? I dragged it back over from Linux, booted back in and the installation continued.~~ (It turned out that my USB was failing and I was lucky it worked here at all. When installing macOS on another machine I kept getting errors that different kexts or drivers were missing each time I booted from the USB. Tried installing with another USB and it worked perfectly.)
 
 ### What worked straight away
 
@@ -175,7 +175,7 @@ PciRoot(0x0)/Pci(0x1D,0x0)/Pci(0x0,0x0)/NVMe(0x1,B0-29-A6-44-8B-44-1B-00)/\EFI\M
 ```
 - Mounted the Hackintosh `EFI` again and edited the `config.plist`:
     - Added a new entries in `MISC > Entries` with the correct `Path` and `Name` and setting `Enabled` to `True` (one entry for Linux, one entry for Windows).
-    - For some reason, the `Windows` entry did not work in the OpenCore menu (it appeared but would not boot, although the original `Windows` was still present and did boot). The new `Linux` entry boots perfectly (but the old `UBUNTU` still doesn't work).
+    - For some reason, the `Windows` entry did not work in the OpenCore menu (it appeared but would not boot, although the original `Windows` was still present and did boot). The new `Linux` entry boots perfectly ~~but the old `UBUNTU` still doesn't work~~. (Deleted the `BOOT` folder present on the Ubuntu drive's `EFI` partition and the `UBUNTU` option disappeared. Note that I had to reinstall the Ubuntu ethernet driver)
 
 ### OpenCanopy
 
