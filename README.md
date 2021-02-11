@@ -8,20 +8,20 @@ Notes about the installation processes for Windows, Linux, and macOS on my new b
 
 ## Hardware
 
-- Case: NCASE M1 V5.0
-- CPU: Intel i7-10700K
-- GPU: Sapphire Radeon RX 5700 XT Pulse 
-- Memory: Corsair Vengeance LPX DDR4 3000MHz 32GB
-- Motherboard: ASRock Z490 Phantom Gaming-ITX/TB3
-    - Audio card: Realtek ALC1220-VB
-    - WiFi/Bluetooth card: Broadcom BCM94360NG
-    - Ethernet card: Realtek RTL8125B-CG
-- Storage:
+- **Case:** NCASE M1 V5.0
+- **CPU:** Intel i7-10700K
+- **GPU:** Sapphire Radeon RX 5700 XT Pulse 
+- **Memory:** Corsair Vengeance LPX DDR4 3000MHz 32GB
+- **Motherboard:** ASRock Z490 Phantom Gaming-ITX/TB3
+    - **Audio card:** Realtek ALC1220-VB
+    - **WiFi/Bluetooth card:** Broadcom BCM94360NG
+    - **Ethernet card:** Realtek RTL8125B-CG
+- **Storage:**
     - WD BLACK SN750 NVMe 1TB — macOS Big Sur
     - WD BLACK SN750 NVMe 1TB (with heatsink) — Windows 10
     - Kingston 500GB SSD — Ubuntu 20.04.1 LTS
     - Kingston 2TB SSD — Shared internal storage
-- Power Supply: Corsair SF600
+- **Power Supply:** Corsair SF600
 
 ## What works
 
