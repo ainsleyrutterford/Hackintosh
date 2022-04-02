@@ -66,9 +66,9 @@ Followed [Chris Schmock's settings](https://github.com/SchmockLord/Hackintosh-In
 
 ### Installation
 
-- Unplugged the Linux and Windows drives.
+- Unplugged the Windows drive.
 - Booted into the USB, chose `OPENCORE (external)` and formatted the drive to APFS with a GUID partition scheme.
-- Installed Catalina. ~~When the computer restarted, I think the `EFI` directory had been deleted from the USB? I dragged it back over from Linux, booted back in and the installation continued.~~ (It turned out that my USB was failing and I was lucky it worked here at all. When installing macOS on another machine I kept getting errors that different kexts or drivers were missing each time I booted from the USB. Tried installing with another USB and it worked perfectly.)
+- Installed Monterey.
 
 ### What worked straight away
 
@@ -84,67 +84,12 @@ Followed the advice outlined [here](https://www.reddit.com/r/hackintosh/comments
 
 > Navigate to System Preferences > Network. Select Ethernet, click Advanced, click Hardware, and Select Configure : Manually with Speed : 1000baseT
 
-### Booting without a USB
-
-Simply followed the [Dortania guide](https://dortania.github.io/OpenCore-Post-Install/universal/oc2hdd.html) again.
-
-### USB Ports
-
-- Mounted the `EFI` partition using [MountEFI](https://github.com/corpnewt/MountEFI).
-- Removed `USBInjectAll.kext`.
-- Removed `SSDT-EC-USBX-DESKTOP.aml` and added [Schmock's](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) `SSDT-EC-USBX.aml`.
-- (This isn't to do with USB, but added [Schmock's](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) `SSDT-SBUS-MCHC.aml` as [Papadiche](https://docs.google.com/document/d/1XeUu0YcV2JjsxzpEYQL7mAyqkdN7Q0TTLC6gSsfxzC4/edit) had it too.)
-- Added [Papadiche's](https://docs.google.com/document/d/1XeUu0YcV2JjsxzpEYQL7mAyqkdN7Q0TTLC6gSsfxzC4/edit) `USBMap.kext`.
-- Added `USBWakeFixup.kext`.
-- Opened `config.plist` in [ProperTree](https://github.com/corpnewt/ProperTree), and clicked `File > OC snapshot` to inject the kexts.
-- Also changed `Kernel > Quirks > XhciPortLimit` to `False` in the `config.plist`.
-- Rebooted.
-
-### Making the boot less verbose
-
-- Mounted the `EFI` partition using [MountEFI](https://github.com/corpnewt/MountEFI).
-- Opened `config.plist` in [ProperTree](https://github.com/corpnewt/ProperTree) and:
-    - Changed `Misc > Debug > AppleDebug` to `False`.
-    - Removed `-v` from `boot-args` in `NVRAM > Add > 7C436110-AB2A-4BBB-A880-FE41995C9F82`.
-- Rebooted.
-
 ### Using Bootstrap
 
 - Opened `config.plist` in [ProperTree](https://github.com/corpnewt/ProperTree) and:
     - Changed `Misc > Security > BootProtect` to `Bootstrap`.
     - Was told to change `UEFI > Quirks > RequestBootVarRouting` to `True` but it already was.
 - Rebooted.
-
-## Updating to macOS Big Sur
-
-- Backed up the `Hackintosh` drive using [Carbon Copy Cloner]().
-    - Mounted the `EFI` partitions of `Hackintosh` and the back up drive using [MountEFI](https://github.com/corpnewt/MountEFI).
-    - Copied the `EFI` folder from `Hackintosh` over to the back up drive.
-    - Booted into the back up drive to check if it was functional.
-    - Booted back into the `Hackintosh` drive to continue with the update.
-- Updated as usual via System Preferences and all went smoothly.
-
-## Adding Ubuntu boot option to OpenCore
-
-The Windows boot option was automatically available and worked perfectly. Ubuntu seemed to be available too but was called `NO NAME` and I could not boot into it. I logged into Ubuntu and used the disks settings application to rename the `EFI` partition. This changed it from `NO NAME` to `UBUNTU` in the OpenCore boot menu. However, I still could not get this `UBUNTU` option to work like the `Windows` one was by default. So I followed [this guide](https://medium.com/macoclock/guide-multiboot-dualboot-opencore-with-windows-macos-linux-kextcache-131e96784c3f) and (looked at [this guide](https://github.com/sarkrui/Hackintosh-Z390-Aorus-Pro-9700K-RX580/wiki/How-to-add-a-boot-entry-in-OpenCore) too).
-
-- Booted into `OpenShell.efi` and noting down all of the partitions that corresponded to the each operating system.
-- Couldn't mount Linux EFI using [MountEFI](https://github.com/corpnewt/MountEFI) so ended up using `distutil` as recommended [here](https://www.insanelymac.com/forum/topic/344324-opencore-last-step-problem-please-help/):
-    - Used `distutil list` to list all connected disks.
-    - Linux was `disk2` and the `EFI` was partition `1` so I used `sudo distutil mount disk2s1`.
-    - You can later unmount with `sudo distutil unmount disk2s1`.
-- Ended up with these values:
-
-```
-FS0: Linux
-PciRoot(0x0)/Pci(0x17,0x0)/Sata(0x0,0xFFFF,0x0)/HD(1,GPT,A1A31A26-6614-44CD-9E03-A145082203FD,0x800,0x100000)/\EFI\ubuntu\grubx64.efi
-
-FS8: Windows
-PciRoot(0x0)/Pci(0x1D,0x0)/Pci(0x0,0x0)/NVMe(0x1,B0-29-A6-44-8B-44-1B-00)/\EFI\Microsoft\Boot\bootmgfw.efi
-```
-- Mounted the Hackintosh `EFI` again and edited the `config.plist`:
-    - Added a new entries in `MISC > Entries` with the correct `Path` and `Name` and setting `Enabled` to `True` (one entry for Linux, one entry for Windows).
-    - For some reason, the `Windows` entry did not work in the OpenCore menu (it appeared but would not boot, although the original `Windows` was still present and did boot). The new `Linux` entry boots perfectly ~~but the old `UBUNTU` still doesn't work~~. (Deleted the `BOOT` folder present on the Ubuntu drive's `EFI` partition and the `UBUNTU` option disappeared. Note that I had to reinstall the Ubuntu ethernet driver)
 
 ### OpenCanopy
 
