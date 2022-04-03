@@ -1,5 +1,6 @@
 <p align="center">
-<img src="docs/about.png" height=380>
+<img src="docs/about-dark.png#gh-dark-mode-only" height=400>
+<img src="docs/about-dark.png#gh-light-mode-only" height=400>
 </p>
 
 # Hackintosh
@@ -55,12 +56,12 @@ Followed the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/
 
 - The firmware drivers and kexts I chose are available in the [EFI](EFI) directory.
 - Used a prebuilt SSDT-EC-USBX but created the rest myself using [SSDTTime](https://github.com/corpnewt/SSDTTime).
-- Followed the [Comet Lake Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#starting-point) to edit the `config.plist`. Used [ProperTree](https://github.com/corpnewt/ProperTree) to edit the plist and [GenSMBIOS](https://github.com/corpnewt/GenSMBIOS) to generate the SMBIOS data.
+- Followed the [Comet Lake Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#starting-point) to edit the `config.plist`.
 - In order for audio to work, the `layout-id` of `PciRoot(0x0)/Pci(0x1F,0x3)` must be set to `0B000000` as mentioned [here](https://www.reddit.com/r/hackintosh/comments/i3pega/z490_itx_guide/) and [here](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3).
 
 ### BIOS Settings
 
-Followed [Chris Schmock's settings](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) almost exactly. I ended up updating my BIOS to [1.50](https://www.asrock.com/mb/Intel/Z490%20Phantom%20Gaming-ITXTB3/index.asp#BIOS) using the Windows easy installation process, as I was having troubles with booting into the USB (but it turned out I had put the `EFI` directory in the wrong place, so the update was unnecesasry). I later updated to 1.60 to use a 6900 XT. Since you can only download the 1.60 ROM (and not the Windows easy install program), I copied the `Z49PGIX1.60` file to the same directory as the `ASROM.exe` file (from the 1.50 download) and changed the target ROM file to `Z49PGIX1.60` in `ASROM.ini`.
+Updated the BIOS to [1.60](https://www.asrock.com/mb/Intel/Z490%20Phantom%20Gaming-ITXTB3/index.asp#BIOS) using the Windows easy installation process to enable the use of a 6900 XT. Since you can only download the 1.60 ROM (and not the Windows easy install program), I copied the `Z49PGIX1.60` file to the same directory as the `ASROM.exe` file (from the 1.50 download) and changed the target ROM file to `Z49PGIX1.60` in `ASROM.ini`.
 
 ### Installation
 
@@ -76,19 +77,16 @@ Followed [Chris Schmock's settings](https://github.com/SchmockLord/Hackintosh-In
 
 **Ethernet** *(chip showed up in system report but wasn't working, fixed this later on)*.
 
+## Post Installation
+
 ### Fixing Ethernet
 
 Followed the advice outlined [here](https://www.reddit.com/r/hackintosh/comments/i3pega/z490_itx_guide/) (which was then referenced [here](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3/issues/25) and [here](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3/issues/4)):
 
 > Navigate to System Preferences > Network. Select Ethernet, click Advanced, click Hardware, and Select Configure : Manually with Speed : 1000baseT
 
-### Using Bootstrap
+### Using LauncherOption
 
-- Opened `config.plist` in [ProperTree](https://github.com/corpnewt/ProperTree) and:
-    - Changed `Misc > Security > BootProtect` to `Bootstrap`.
-    - Was told to change `UEFI > Quirks > RequestBootVarRouting` to `True` but it already was.
-- Rebooted.
+Creates an OpenCore boot option in the BIOS and stops Windows update from messing things up.
 
-### OpenCanopy
-
-Followed the [Dortania OpenCanopy guide](https://dortania.github.io/OpenCore-Post-Install/cosmetic/gui.html#setting-up-opencore-s-gui) and set `MISC > Boot > PickerVariant` to `Default`.
+Followed the [LauncherOption page](https://dortania.github.io/OpenCore-Post-Install/multiboot/bootstrap.html#using-launcheroption) in the Dortania post-install guide.
