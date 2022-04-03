@@ -1,7 +1,14 @@
-<p align="center">
-<img src="docs/about-dark.png#gh-dark-mode-only" height=400>
-<img src="docs/about-dark.png#gh-light-mode-only" height=400>
-</p>
+<div>
+
+![About dark](./docs/about-dark.png#gh-dark-mode-only)
+
+</div>
+
+<div>
+
+![About light](./docs/about-light.png#gh-light-mode-only)
+
+</div>
 
 # Hackintosh
 
