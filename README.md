@@ -1,11 +1,6 @@
-<div>
+<div align="center">
 
 ![About dark](./docs/about-dark.png#gh-dark-mode-only)
-
-</div>
-
-<div>
-
 ![About light](./docs/about-light.png#gh-light-mode-only)
 
 </div>
