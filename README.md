@@ -40,9 +40,7 @@ Notes about the installation processes for Windows, and macOS on an ASRock Z490 
 - **Shutdown**
 - **Restart**
 
-## What doesn't work
-
-- Nothing that I am aware of
+What doesn't work? Nothing that I am aware of!
 
 ## Installing Windows 10
 
@@ -71,21 +69,7 @@ Updated the BIOS to [1.60](https://www.asrock.com/mb/Intel/Z490%20Phantom%20Gami
 - Booted into the USB, chose `OPENCORE (external)` and formatted the drive to APFS with a GUID partition scheme.
 - Installed Monterey.
 
-### What worked straight away
-
-**Audio** *(the 3.5 mm rear jack and the USB Razer Blackshark V2 Pro both work perfectly)*, **WiFi**, **Bluetooth**, **AirDrop**, **iMessage**, **Sleep/wake** *(seems to wake with one tap of space bar and one or two clicks. For good measure, disabled "wake for network access" and "power nap" in System Preferences > Energy Saver, and disabled "allow bluetooth devices to wake this computer" in System Preferences > Bluetooth > Advanced)*, **Shutdown**, **Restart**.
-
-### What didn't work
-
-**Ethernet** *(chip showed up in system report but wasn't working, fixed this later on)*.
-
 ## Post Installation
-
-### Fixing Ethernet
-
-Followed the advice outlined [here](https://www.reddit.com/r/hackintosh/comments/i3pega/z490_itx_guide/) (which was then referenced [here](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3/issues/25) and [here](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3/issues/4)):
-
-> Navigate to System Preferences > Network. Select Ethernet, click Advanced, click Hardware, and Select Configure : Manually with Speed : 1000baseT
 
 ### Using LauncherOption
 
