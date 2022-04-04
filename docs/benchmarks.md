@@ -13,20 +13,20 @@ Benchmarked using [Black Magic Disk Speed Test](https://apps.apple.com/gb/app/bl
 
 ## CPU
 
-Undervolted with an offset of -100mV. Benchmarked using [Cinebench](https://www.techspot.com/downloads/6709-cinebench.html) and [Geekbench](https://www.geekbench.com/index.html).
+Undervolted with an offset of -50mV. Benchmarked using [Cinebench](https://www.techspot.com/downloads/6709-cinebench.html) and [Geekbench](https://www.geekbench.com/index.html).
 
 | Benchmark | Single Core | Multi Core |
 | --- | --- | --- |
-| Cinebench R23 (macOS) | 1225 | 12859 |
-| Cinebench R23 (Windows) | 1208 | 12243 |
-| Geekbench 5 (macOS) | 1271 | 9091 |
-| Geekbench 5 (Windows) | 1281 | 8932 |
+| Cinebench R23 (macOS) | **outdated:** 1225 | **outdated:** 12859 |
+| Cinebench R23 (Windows) | **outdated:** 1208 | **outdated:** 12243 |
+| Geekbench 5 (macOS) | 1320 | 10847 |
+| Geekbench 5 (Windows) | **outdated:** 1281 | **outdated:** 8932 |
 
 ## GPU
 
-Undervolted using AMD Radeon Software's auto undervolt feature. Benchmarked using [Geekbench](https://www.geekbench.com/index.html) (OpenCL).  Might need to use the kext that improves 5700 XT performance on macOS?
+Benchmarked using [Geekbench](https://www.geekbench.com/index.html) (OpenCL).
 
 | Benchmark | Score |
 | --- | --- |
-| Geekbench compute (macOS) | 65687 |
-| Geekbench compute (Windows) | 78243 |
+| Geekbench compute (macOS) | 120705 |
+| Geekbench compute (Windows) | **outdated:** 78243 |

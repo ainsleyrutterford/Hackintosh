@@ -7,7 +7,7 @@
 
 # Hackintosh
 
-Notes about the installation processes for Windows, and macOS on an ASRock Z490 Phantom Gaming-ITX/TB3. Some benchmark scores are available [here](docs/benchmarks.md).
+Notes about the installation processes for Windows 10 and macOS Monterey on an ASRock Z490 Phantom Gaming-ITX/TB3. Some benchmark scores are available [here](docs/benchmarks.md).
 
 ## Hardware
 
@@ -56,7 +56,7 @@ Followed the [Dortania guide](https://dortania.github.io/OpenCore-Install-Guide/
 
 Followed the [Dortania Comet Lake guide](https://dortania.github.io/OpenCore-Install-Guide/config.plist/comet-lake.html#starting-point) to edit the `config.plist`:
 - The firmware drivers and kexts I chose are available in the [EFI](EFI) directory.
-- Used a prebuilt `SSDT-EC-USBX.aml` from the Comet lake guide, created `SSDT-AWAC.aml` and `SSDT-PLUG.aml` myself using [SSDTTime](https://github.com/corpnewt/SSDTTime), and downloaded a `SSDT-SBUS-MCHC.aml` that [Schmock built](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3).
+- Used a prebuilt `SSDT-EC-USBX.aml` from the Comet lake guide, created `SSDT-AWAC.aml` and `SSDT-PLUG.aml` myself using [SSDTTime](https://github.com/corpnewt/SSDTTime), and downloaded an `SSDT-SBUS-MCHC.aml` that [Schmock built](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3).
 - In order for audio to work, the `layout-id` of `PciRoot(0x0)/Pci(0x1F,0x3)` must be set to `0B000000` as mentioned [here](https://www.reddit.com/r/hackintosh/comments/i3pega/z490_itx_guide/) and [here](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3).
 
 ### BIOS Settings
