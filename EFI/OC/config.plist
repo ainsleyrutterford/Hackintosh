@@ -30,6 +30,22 @@
 				<key>Path</key>
 				<string>SSDT-PLUG.aml</string>
 			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-SBUS-MCHC.aml</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-SBUS-MCHC.aml</string>
+			</dict>
+			<dict>
+				<key>Comment</key>
+				<string>SSDT-USBW.aml</string>
+				<key>Enabled</key>
+				<true/>
+				<key>Path</key>
+				<string>SSDT-USBW.aml</string>
+			</dict>
 		</array>
 		<key>Delete</key>
 		<array>
@@ -315,13 +331,13 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>USBToolBox.kext</string>
+				<string>USBMap.kext</string>
 				<key>Comment</key>
-				<string>USBToolBox.kext</string>
+				<string>USBMap.kext</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string>Contents/MacOS/USBToolBox</string>
+				<string></string>
 				<key>Arch</key>
 				<string>Any</string>
 				<key>MaxKernel</key>
@@ -333,13 +349,13 @@
 			</dict>
 			<dict>
 				<key>BundlePath</key>
-				<string>UTBMap.kext</string>
+				<string>USBWakeFixup.kext</string>
 				<key>Comment</key>
-				<string>UTBMap.kext</string>
+				<string>USBWakeFixup.kext</string>
 				<key>Enabled</key>
 				<true/>
 				<key>ExecutablePath</key>
-				<string></string>
+				<string>Contents/MacOS/USBWakeFixup</string>
 				<key>Arch</key>
 				<string>Any</string>
 				<key>MaxKernel</key>
