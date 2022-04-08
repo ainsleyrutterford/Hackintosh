@@ -87,5 +87,5 @@ The [USBWakeFixup kext](https://github.com/osy/USBWakeFixup) was necessary to en
 ## Acknowledgements
 
 - [The Dortania OpenCore guide](https://dortania.github.io/OpenCore-Install-Guide) is unbelievably useful and complete.
-- [Papadiche's guide](https://docs.google.com/document/d/1XeUu0YcV2JjsxzpEYQL7mAyqkdN7Q0TTLC6gSsfxzC4/edit) helped fix the on-board audio.
-- [Chris Schmock's build](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) was used for the `SSDT-SBUS-MCHC.aml`.
+- [Papadiche's guide](https://docs.google.com/document/d/1XeUu0YcV2JjsxzpEYQL7mAyqkdN7Q0TTLC6gSsfxzC4/edit) helped fix the on-board audio and provided a USBMap kext.
+- [Chris Schmock's build](https://github.com/SchmockLord/Hackintosh-Intel-i9-10900k-AsRock-Z490-Phantom-ITX-TB3) provided the `SSDT-SBUS-MCHC.aml`.
