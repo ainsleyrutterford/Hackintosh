@@ -33,6 +33,7 @@ Notes about the installation processes for Windows 10 and macOS Monterey on an A
 - **WiFi**
 - **Bluetooth**
 - **AirDrop**
+- **Universal Control**
 - **iMessage**
 - **iCloud**
 - **Find My**
