@@ -13,14 +13,14 @@ Benchmarked using [Black Magic Disk Speed Test](https://apps.apple.com/gb/app/bl
 
 ## CPU
 
-Undervolted with an offset of -50mV. Benchmarked using [Cinebench](https://www.techspot.com/downloads/6709-cinebench.html) and [Geekbench](https://www.geekbench.com/index.html).
+Followed [Papadiche's CPU BIOS settings](https://docs.google.com/document/d/1XeUu0YcV2JjsxzpEYQL7mAyqkdN7Q0TTLC6gSsfxzC4/edit). Benchmarked using [Cinebench](https://www.techspot.com/downloads/6709-cinebench.html) and [Geekbench](https://www.geekbench.com/index.html).
 
 | Benchmark | Single Core | Multi Core |
 | --- | --- | --- |
 | Cinebench R23 (macOS) | **outdated:** 1225 | **outdated:** 12859 |
-| Cinebench R23 (Windows) | **outdated:** 1208 | **outdated:** 12243 |
-| Geekbench 5 (macOS) | 1320 | 10847 |
-| Geekbench 5 (Windows) | **outdated:** 1281 | **outdated:** 8932 |
+| Cinebench R23 (Windows) | 1291 | 12803 |
+| Geekbench 5 (macOS) | **outdated:** 1320 | **outdated:** 10847 |
+| Geekbench 5 (Windows) | 1352 | 9915 |
 
 ## GPU
 
@@ -28,5 +28,5 @@ Benchmarked using [Geekbench](https://www.geekbench.com/index.html) (OpenCL).
 
 | Benchmark | Score |
 | --- | --- |
-| Geekbench compute (macOS) | 120705 |
-| Geekbench compute (Windows) | **outdated:** 78243 |
+| Geekbench compute (macOS) | **outdated:** 120705 |
+| Geekbench compute (Windows) | 195582 |
