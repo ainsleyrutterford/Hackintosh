@@ -19,7 +19,7 @@ Followed [Papadiche's CPU BIOS settings](https://docs.google.com/document/d/1XeU
 | --- | --- | --- |
 | Cinebench R23 (macOS) | **outdated:** 1225 | **outdated:** 12859 |
 | Cinebench R23 (Windows) | 1291 | 12803 |
-| Geekbench 5 (macOS) | **outdated:** 1320 | **outdated:** 10847 |
+| Geekbench 5 (macOS) | 1350 | 10686 |
 | Geekbench 5 (Windows) | 1352 | 9915 |
 
 ## GPU
@@ -28,5 +28,5 @@ Benchmarked using [Geekbench](https://www.geekbench.com/index.html) (OpenCL).
 
 | Benchmark | Score |
 | --- | --- |
-| Geekbench compute (macOS) | **outdated:** 120705 |
+| Geekbench compute (macOS) | 117080 |
 | Geekbench compute (Windows) | 195582 |
