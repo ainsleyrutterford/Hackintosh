@@ -17,7 +17,7 @@ Followed [Papadiche's CPU BIOS settings](https://docs.google.com/document/d/1XeU
 
 | Benchmark | Single Core | Multi Core |
 | --- | --- | --- |
-| Cinebench R23 (macOS) | **outdated:** 1225 | **outdated:** 12859 |
+| Cinebench R23 (macOS) | 1299 | 14441 |
 | Cinebench R23 (Windows) | 1291 | 12803 |
 | Geekbench 5 (macOS) | 1350 | 10686 |
 | Geekbench 5 (Windows) | 1352 | 9915 |
