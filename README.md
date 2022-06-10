@@ -12,7 +12,7 @@ Notes about the installation processes for Windows 10 and macOS Monterey on an A
 ## Hardware
 
 - **Case:** NCASE M1 V5.0
-- **CPU:** Intel i7-10900K
+- **CPU:** Intel i9-10900K
 - **GPU:** Gigabyte RX 6900 XT Gaming OC 
 - **Memory:** Corsair Vengeance LPX DDR4 3000MHz 32GB
 - **Motherboard:** ASRock Z490 Phantom Gaming-ITX/TB3
