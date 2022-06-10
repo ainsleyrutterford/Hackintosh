@@ -7,7 +7,7 @@
 
 # Hackintosh
 
-Notes about the installation processes for Windows 10 and macOS Monterey on an ASRock Z490 Phantom Gaming-ITX/TB3. Some benchmark scores are available [here](docs/benchmarks.md).
+Notes about the installation processes for Windows 10 and macOS Monterey on an ASRock Z490 Phantom Gaming-ITX/TB3. Some benchmark scores are available [here](docs/benchmarks.md). Notes about the installation of Big Sur and Ubuntu on this board are available in the [`5700-XT-10700K-Big-Sur` branch](https://github.com/ainsleyrutterford/Hackintosh/tree/5700-XT-10700K-Big-Sur).
 
 ## Hardware
 
